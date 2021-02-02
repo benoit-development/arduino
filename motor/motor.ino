@@ -36,6 +36,57 @@ int Echo = A4;
 int Trig = A5;
 int rightDistance = 0, leftDistance = 0, middleDistance = 0;
 
+
+
+//before execute loop() function, 
+//setup() function will execute first and only execute once
+void setup() {
+  myservo.attach(3,700,2400);  // attach servo on pin 3 to servo object
+  Serial.begin(9600);     
+  pinMode(Echo, INPUT);    
+  pinMode(Trig, OUTPUT);  
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  myservo.write(90);
+  freeze(100);
+}
+
+//Repeat execution
+void loop() {
+  
+    middleDistance = Distance_test();
+
+    if (middleDistance <= DISTANCE) {
+
+      back(500);
+      freeze(1);
+      
+      checkRightDistance();
+      delay(500);
+      checkLeftDistance();
+      delay(500);
+      myservo.write(90);
+      
+      if((rightDistance <= DISTANCE) && (leftDistance <= DISTANCE)) {
+        back(200);
+      } else if(rightDistance > leftDistance) {
+        right(90);
+      }
+      else if(rightDistance <= leftDistance) {
+        left(90);
+      }
+      
+    } else {
+      forward(10);
+    }
+    delay(10);
+    
+}
+
 void forward(int duration){ 
   // Serial.println("Forward");
   
@@ -60,7 +111,7 @@ void back(int duration){
   delay(duration);
 }
 
-void left(){
+void left(float angle){
   Serial.println("Left");
   
   digitalWrite(ENA,HIGH);
@@ -69,26 +120,28 @@ void left(){
   digitalWrite(IN2,HIGH);
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,HIGH); 
-  delay(325);
+
+  delay(angle * 4.5); // convert angle in ms
 }
 
-void right(){
-  Serial.println("Right");
+void right(float angle){
+  Serial.println("RIGHT");
   
   digitalWrite(ENA,HIGH);
   digitalWrite(ENB,HIGH);
   digitalWrite(IN1,HIGH);
   digitalWrite(IN2,LOW);
   digitalWrite(IN3,HIGH);
-  digitalWrite(IN4,LOW);
-  delay(375);
+  digitalWrite(IN4,LOW); 
+
+  delay(angle * 4.5); // convert angle in ms
 }
 
 void freeze(int duration){
   Serial.println("Stop");
   
-  digitalWrite(ENA,LOW);
-  digitalWrite(ENB,LOW);
+  digitalWrite(ENA,HIGH);
+  digitalWrite(ENB,HIGH);
   digitalWrite(IN1,LOW);
   digitalWrite(IN2,LOW);
   digitalWrite(IN3,LOW);
@@ -136,52 +189,4 @@ void checkLeftDistance() {
 
   Serial.print("Left : ");
   Serial.println(leftDistance);
-}
-
-//before execute loop() function, 
-//setup() function will execute first and only execute once
-void setup() {
-  myservo.attach(3,700,2400);  // attach servo on pin 3 to servo object
-  Serial.begin(9600);     
-  pinMode(Echo, INPUT);    
-  pinMode(Trig, OUTPUT);  
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(IN3, OUTPUT);
-  pinMode(IN4, OUTPUT);
-  pinMode(ENA, OUTPUT);
-  pinMode(ENB, OUTPUT);
-  myservo.write(90);
-  freeze(100);
-}
-
-//Repeat execution
-void loop() {
-
-    middleDistance = Distance_test();
-
-    if (middleDistance <= DISTANCE) {
-
-      back(500);
-      freeze(1);
-      
-      checkRightDistance();
-      delay(500);
-      checkLeftDistance();
-      delay(500);
-      myservo.write(90);
-      
-      if((rightDistance <= DISTANCE) && (leftDistance <= DISTANCE)) {
-        back(200);
-      } else if(rightDistance > leftDistance) {
-        right();
-      }
-      else if(rightDistance <= leftDistance) {
-        left();
-      }
-      
-    } else {
-      forward(10);
-    }
-    delay(10);
 }
