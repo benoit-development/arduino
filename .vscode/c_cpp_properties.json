@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/guybrush/Arduino/libraries/TaskScheduler/src",
+                "/home/guybrush/Programming/Tools/arduino/tools/**",
+                "/home/guybrush/Arduino/libraries/**",
+                "/home/guybrush/Arduino/libraries/Keypad/**",
+                "/home/guybrush/Programming/Tools/arduino/libraries/**",
+                "/home/guybrush/Programming/Tools/arduino/hardware/tools/**",
+                "/home/guybrush/Programming/Tools/arduino/hardware/arduino/avr/**",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "USBCON",
+                "ARDUINO=10813"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64",
+            "forcedInclude": [
+                "/home/guybrush/Programming/Tools/arduino/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ]
+        }
+    ],
+    "version": 4
+}
