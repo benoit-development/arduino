@@ -1,5 +1,7 @@
 {
-    "board": "arduino:avr:uno",
+    "board": "arduino:avr:mega",
     "port": "/dev/ttyACM0",
-    "sketch": "Tasks/Tasks.ino"
+    "sketch": "Motor2/Motor2.ino",
+    "configuration": "cpu=atmega2560",
+    "programmer": "AVR ISP"
 }
