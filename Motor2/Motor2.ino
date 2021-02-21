@@ -17,8 +17,8 @@ Servo servo;
 int echoUp = A4;
 int trigUp = A5;
 
-int echoDown = A8;
-int trigDown = A9;
+int echoDown = A3;
+int trigDown = A2;
 
 void distanceUpMethod()
 {
