@@ -1,22 +1,43 @@
-#define LED 13    //Define 13 pin for LED
-bool state = LOW; //The initial state of the function is defined as a low level
-char getstr;      //Defines a function that receives the Bluetooth character
- 
-void setup() {
-  pinMode(LED, OUTPUT);
+// Made by https://retroetgeek.com
+#include <SoftwareSerial.h> // librairie pour creer une nouvelle connexion serie max 9600 baud
+#define PIN_LED 13
+
+SoftwareSerial BTSerial(10, 11); // RX | TX  = > BT-TX=10 BT-RX=11
+
+void setup()
+{
   Serial.begin(9600);
+
+
+  BTSerial.begin(115200);
+
+  pinMode(PIN_LED, OUTPUT);
 }
- 
-//Control LED sub function
-void stateChange() {
-  state = !state; 
-  digitalWrite(LED, state);  
-}
- 
-void loop() {
-  //The Bluetooth serial port to receive the data in the function
-  getstr = Serial.read();
-  if(getstr == 'a'){
-    stateChange();
+
+void loop()
+{
+  String message;
+
+  while (BTSerial.available())
+  {
+    message = BTSerial.readString();
+    Serial.println(message);
+  }
+
+  while (Serial.available())
+  {
+    message = Serial.readString();
+    BTSerial.println(message);
+  }
+
+  if (message == "on")
+  {
+    Serial.println("light on");
+    digitalWrite(PIN_LED, HIGH);
+  }
+  else if (message == "off")
+  {
+    Serial.println("light off");
+    digitalWrite(PIN_LED, LOW);
   }
 }

@@ -1,7 +1,6 @@
 {
-    "board": "arduino:avr:mega",
+    "board": "arduino:avr:uno",
     "port": "/dev/ttyACM0",
-    "sketch": "Motor2/Motor2.ino",
-    "configuration": "cpu=atmega2560",
-    "programmer": "AVR ISP"
+    "programmer": "AVR ISP",
+    "sketch": "stepper2/stepper2.ino"
 }
