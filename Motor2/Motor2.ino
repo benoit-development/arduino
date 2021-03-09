@@ -29,13 +29,16 @@ void distanceUpMethod()
         servo.write(angle);
         int distance = distanceTest(echoUp, trigUp);
 
-        Serial.print("Up : ");
+        Serial.print("Up/Angle : ");
+        Serial.print(angle);
+        Serial.print("/");
         Serial.println(distance);
 
         if (distance <= IMPACT_DISTANCE)
         {
             escape();
         }
+        delay(100);
     }
 }
 Task distanceUpTask(100 * TASK_MILLISECOND, TASK_FOREVER, &distanceUpMethod);

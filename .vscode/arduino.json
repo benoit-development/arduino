@@ -1,6 +1,7 @@
 {
-    "board": "arduino:avr:uno",
-    "port": "/dev/ttyACM0",
+    "board": "arduino:avr:nano",
+    "port": "/dev/ttyUSB0",
     "programmer": "AVR ISP",
-    "sketch": "stepper2/stepper2.ino"
+    "configuration": "cpu=atmega328",
+    "sketch": "Fridge/Fridge.ino"
 }

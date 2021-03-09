@@ -3,6 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
+                "/home/guybrush/Arduino/libraries/Rocket_Scream_LowPowerAVRZero/src",
                 "/home/guybrush/Arduino/libraries/TaskScheduler/src",
                 "/home/guybrush/Programming/Tools/arduino/tools/**",
                 "/home/guybrush/Arduino/libraries/**",
@@ -10,7 +11,9 @@
                 "/home/guybrush/Programming/Tools/arduino/libraries/**",
                 "/home/guybrush/Programming/Tools/arduino/hardware/tools/**",
                 "/home/guybrush/Programming/Tools/arduino/hardware/arduino/avr/**",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/home/guybrush/.arduino15/packages/arduino/hardware/avr/1.8.3/**",
+                "/home/guybrush/.arduino15/packages/arduino/tools/**"
             ],
             "defines": [
                 "USBCON",
@@ -21,7 +24,7 @@
             "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64",
             "forcedInclude": [
-                "/home/guybrush/Programming/Tools/arduino/hardware/arduino/avr/cores/arduino/Arduino.h"
+                "/home/guybrush/.arduino15/packages/arduino/hardware/avr/1.8.3/cores/arduino/Arduino.h"
             ]
         }
     ],
