@@ -1,4 +1,6 @@
+#include <Arduino.h>
 #include "LedControl.h"
+#include "count.h"
 
 LedControl lc = LedControl(12, 10, 11, 1);
 
@@ -116,4 +118,19 @@ void display(int number) {
     {
         lc.setRow(0, i, n[number][i]);
     }
+}
+
+void displayMusic() {
+    lc.setRow(0, 0, B00011100);
+    lc.setRow(0, 1, B00011110);
+    lc.setRow(0, 2, B00010111);
+    lc.setRow(0, 3, B00010000);
+    lc.setRow(0, 4, B01110000);
+    lc.setRow(0, 5, B11110000);
+    lc.setRow(0, 6, B11110000);
+    lc.setRow(0, 7, B01100000);
+}
+
+void clearDisplay() {
+    lc.clearDisplay(0);
 }

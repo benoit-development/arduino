@@ -1,0 +1,3 @@
+void startCountDown();
+
+void stop();
