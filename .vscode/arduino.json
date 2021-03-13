@@ -1,7 +1,7 @@
 {
     "board": "arduino:avr:nano",
     "port": "/dev/ttyUSB0",
-    "programmer": "AVR ISP",
+    "programmer": "USBtinyISP",
     "configuration": "cpu=atmega328",
     "sketch": "Fridge/Fridge.ino"
 }

@@ -114,6 +114,8 @@ void lcSetup() {
 }
 
 void display(int number) {
+    Serial.print("LCD");
+    Serial.println(number);
     for (int i = 0; i < 8; i++)
     {
         lc.setRow(0, i, n[number][i]);
@@ -132,5 +134,6 @@ void displayMusic() {
 }
 
 void clearDisplay() {
+    Serial.println("LCD : Music");
     lc.clearDisplay(0);
 }

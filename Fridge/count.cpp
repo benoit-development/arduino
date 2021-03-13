@@ -8,6 +8,7 @@ void stop() {
 }
 
 void startCountDown() {
+    Serial.println("Start CountDown");
     for (int i=1; i>=0; i--) {
         if (isDoorClosed()) {
             stop();

@@ -73,6 +73,7 @@ int gameOfThrone[][2] = {
     {NOTE_A4, 4},
 
     {NOTE_D4, 4},
+    
     {NOTE_F4, 1},
     {NOTE_G4, 1},
 
@@ -86,10 +87,12 @@ void playNote(int note, int duration, int noteDurantion) {
 }
 
 void playMusic(int music[][2], int noteCount, int noteDurantion) {
+    Serial.println("Play music");
     displayMusic();
     while (!isDoorClosed()) {
         for (int i=0; i<noteCount; i++) {
             if (isDoorClosed()) {
+                Serial.println("Stop Music");
                 stop();
                 return;
             }
@@ -99,9 +102,11 @@ void playMusic(int music[][2], int noteCount, int noteDurantion) {
 }
 
 void playValentina() {
+    Serial.println("Play Valentina");
     playMusic(valentina, 26, 140);
 }
 
 void playGameOfThrone() {
+    Serial.println("Play Game of thrones");
     playMusic(gameOfThrone, 25, 180);
 }

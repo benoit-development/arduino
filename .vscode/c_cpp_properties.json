@@ -3,6 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
+                "/home/guybrush/Arduino/libraries/Low-Power",
                 "/home/guybrush/Arduino/libraries/Rocket_Scream_LowPowerAVRZero/src",
                 "/home/guybrush/Arduino/libraries/TaskScheduler/src",
                 "/home/guybrush/Programming/Tools/arduino/tools/**",

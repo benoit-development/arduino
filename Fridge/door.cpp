@@ -1,9 +1,5 @@
 #include <Arduino.h>
 
-void doorSetup() {
-    pinMode(8, INPUT_PULLUP);
-}
-
 bool isDoorClosed() {
-    return !digitalRead(8);
+    return !digitalRead(2);
 }
